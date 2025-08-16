@@ -14,7 +14,7 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v4
 
-    - name: Set up Python 3.9.6
+    - name: Set up Python 3.10.14
       uses: actions/setup-python@v5
       with:
         python-version: '3.10.14'
@@ -25,4 +25,4 @@ jobs:
     - name: Run tee time bot
       env:
         GOLF_API_TOKEN: ${{ secrets.GOLF_API_TOKEN }}
-      run: python tee_time_reservations.py --date "2025-08-19" --recorrido "18 HOYOS" --mode closest --target-time "10:00" --wait-until "08:58" --tz "Europe/Madrid" --poll-every 0.25 --max-wait 305 
+      run: python tee_time_reservations.py --date "2025-08-20" --recorrido "18 HOYOS" --mode closest --target-time "09:00" --wait-until "08:58" --tz "Europe/Madrid" --poll-every 0.25 --max-wait 305 

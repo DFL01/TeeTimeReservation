@@ -1,0 +1,28 @@
+name: Tee Time Reservation
+
+on:
+  schedule:
+    # Runs at 9:00 AM Madrid time (cron uses UTC, so adjust accordingly)
+    - cron: '53 6 * * *'   # 7:00 UTC = 9:00 Europe/Madrid
+  workflow_dispatch:       # lets you run manually from GitHub UI too
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.10.14
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10.14'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run tee time bot
+      env:
+        GOLF_API_TOKEN: ${{ secrets.GOLF_API_TOKEN }}
+      run: python tee_time_reservations.py --date "2025-08-17" --recorrido "18 HOYOS" --mode closest --target-time "10:00" --wait-until "08:58" --tz "Europe/Madrid" --poll-every 0.2 --max-wait 305 
