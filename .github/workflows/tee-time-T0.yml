@@ -3,7 +3,7 @@ name: Tee Time Reservation
 on:
   schedule:
     # Runs at 9:00 AM Madrid time (cron uses UTC, so adjust accordingly)
-    - cron: '53 6 * * *'   # 7:00 UTC = 9:00 Europe/Madrid
+    - cron: '53 5 * * *'   # 7:00 UTC = 9:00 Europe/Madrid
   workflow_dispatch:       # lets you run manually from GitHub UI too
 
 jobs:
