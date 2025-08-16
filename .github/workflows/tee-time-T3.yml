@@ -25,4 +25,4 @@ jobs:
     - name: Run tee time bot
       env:
         GOLF_API_TOKEN: ${{ secrets.GOLF_API_TOKEN }}
-      run: python tee_time_reservations.py --date "2025-08-20" --recorrido "18 HOYOS" --mode closest --target-time "09:00" --wait-until "08:58" --tz "Europe/Madrid" --poll-every 0.25 --max-wait 305 --players 3 
+      run: python tee_time_reservations.py --date "2025-08-20" --recorrido "18 HOYOS" --mode closest --target-time "08:00" --wait-until "08:58" --tz "Europe/Madrid" --poll-every 0.25 --max-wait 305 --players 3 
