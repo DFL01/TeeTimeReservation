@@ -229,8 +229,8 @@ def main() -> int:
         now = datetime.now(tz)
         hh, mm = map(int, args.wait_until.split(":"))
         target = now.replace(hour=hh, minute=mm, second=0, microsecond=0)
-        if target <= now:
-            target += timedelta(days=1)  # next day if already past
+        # if target <= now:
+        #     target += timedelta(days=1)  # next day if already past
         print(f"[info] waiting until {target.isoformat()} in {args.tz}", flush=True)
         sleep_until(target)
 
